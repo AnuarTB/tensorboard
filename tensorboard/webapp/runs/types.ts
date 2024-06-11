@@ -51,6 +51,13 @@ export interface RegexGroupBy {
 
 export type GroupBy = BaseGroupBy | RegexGroupBy;
 
+export function isRegexGroupBy(groupBy: GroupBy): groupBy is RegexGroupBy {
+  return (
+    groupBy.key === GroupByKey.REGEX ||
+    groupBy.key === GroupByKey.REGEX_BY_EXP
+  );
+};
+
 /**
  * The runs-related state created by deserializing a URL.
  */
